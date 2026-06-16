@@ -151,6 +151,8 @@ Depuis votre dépôt GitHub :
 4. Vérifiez que vous êtes bien dans l'onglet **Secrets**, pas dans **Variables**.
 5. Cliquez sur **New repository secret**.
 6. Ajoutez les secrets un par un :
+4. Cliquez sur **New repository secret**.
+5. Ajoutez les secrets un par un :
 
    ```text
    OPENAI_API_KEY
@@ -160,6 +162,8 @@ Depuis votre dépôt GitHub :
 
 7. Collez la valeur correspondante pour chaque secret.
 8. Cliquez sur **Add secret** après chaque ajout.
+6. Collez la valeur correspondante pour chaque secret.
+7. Cliquez sur **Add secret** après chaque ajout.
 
 ## 6. Ajouter le modèle OpenAI optionnel
 
