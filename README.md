@@ -134,12 +134,14 @@ Le workflow `.github/workflows/weekly-content.yml` exécute automatiquement la g
 
 Guide pas-à-pas : [`docs/github-actions-setup.md`](docs/github-actions-setup.md).
 
+Secrets GitHub requis, à ajouter dans l'onglet **Secrets** et non dans **Variables** :
 Secrets GitHub requis :
 
 - `OPENAI_API_KEY`
 - `TELEGRAM_BOT_TOKEN`
 - `TELEGRAM_CHAT_ID`
 
+Variable optionnelle, à ajouter dans l'onglet **Variables** :
 Variable optionnelle :
 
 - `OPENAI_MODEL` pour choisir le modèle utilisé.

@@ -14,6 +14,45 @@ Le workflow a besoin de trois secrets GitHub :
 
 La variable `OPENAI_MODEL` est optionnelle. Si elle n'est pas configurée, le workflow utilise `gpt-4.1-mini`.
 
+
+## Important : quel onglet choisir sur GitHub ?
+
+Sur la page **Actions secrets and variables**, GitHub affiche deux onglets :
+
+- **Secrets** : à utiliser pour les valeurs sensibles, privées ou confidentielles ;
+- **Variables** : à utiliser seulement pour les valeurs non sensibles.
+
+Pour ce projet, mettez ces trois valeurs dans l'onglet **Secrets** :
+
+```text
+OPENAI_API_KEY
+TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID
+```
+
+Ne les mettez pas dans **Variables**, car une variable GitHub est visible en clair dans l'interface.
+
+Vous êtes probablement au bon endroit si l'URL ressemble à :
+
+```text
+/settings/secrets/actions
+```
+
+Si l'URL ressemble à :
+
+```text
+/settings/variables/actions
+```
+
+alors vous êtes dans l'onglet **Variables** : cliquez simplement sur l'onglet **Secrets**, situé juste à gauche de **Variables**.
+
+La seule valeur à mettre éventuellement dans **Variables** est :
+
+```text
+OPENAI_MODEL
+```
+
+
 ## 2. Créer le bot Telegram
 
 1. Ouvrez Telegram.
@@ -109,6 +148,9 @@ Depuis votre dépôt GitHub :
 1. Ouvrez l'onglet **Settings**.
 2. Dans le menu de gauche, cliquez sur **Secrets and variables**.
 3. Cliquez sur **Actions**.
+4. Vérifiez que vous êtes bien dans l'onglet **Secrets**, pas dans **Variables**.
+5. Cliquez sur **New repository secret**.
+6. Ajoutez les secrets un par un :
 4. Cliquez sur **New repository secret**.
 5. Ajoutez les secrets un par un :
 
@@ -118,6 +160,8 @@ Depuis votre dépôt GitHub :
    TELEGRAM_CHAT_ID
    ```
 
+7. Collez la valeur correspondante pour chaque secret.
+8. Cliquez sur **Add secret** après chaque ajout.
 6. Collez la valeur correspondante pour chaque secret.
 7. Cliquez sur **Add secret** après chaque ajout.
 
