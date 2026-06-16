@@ -11,25 +11,15 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install package
         run: pip install -e '.[dev]'
-
-      - name: Validate required secrets
-        run: |
-          test -n "$OPENAI_API_KEY" || { echo "::error::Missing OPENAI_API_KEY repository secret"; exit 1; }
-          test -n "$TELEGRAM_BOT_TOKEN" || { echo "::error::Missing TELEGRAM_BOT_TOKEN repository secret"; exit 1; }
-          test -n "$TELEGRAM_CHAT_ID" || { echo "::error::Missing TELEGRAM_CHAT_ID repository secret"; exit 1; }
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
       - name: Generate weekly content and send to Telegram
         run: academia-content weekly --send-telegram
