@@ -134,6 +134,8 @@ Le workflow `.github/workflows/weekly-content.yml` exécute automatiquement la g
 
 Guide pas-à-pas : [`docs/github-actions-setup.md`](docs/github-actions-setup.md).
 
+Aide en cas de conflit de Pull Request : [`docs/merge-pr-help.md`](docs/merge-pr-help.md).
+
 Secrets GitHub requis, à ajouter dans l'onglet **Secrets** et non dans **Variables** :
 
 - `OPENAI_API_KEY`
