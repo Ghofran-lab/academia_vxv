@@ -151,8 +151,6 @@ Depuis votre dépôt GitHub :
 4. Vérifiez que vous êtes bien dans l'onglet **Secrets**, pas dans **Variables**.
 5. Cliquez sur **New repository secret**.
 6. Ajoutez les secrets un par un :
-4. Cliquez sur **New repository secret**.
-5. Ajoutez les secrets un par un :
 
    ```text
    OPENAI_API_KEY
@@ -162,8 +160,6 @@ Depuis votre dépôt GitHub :
 
 7. Collez la valeur correspondante pour chaque secret.
 8. Cliquez sur **Add secret** après chaque ajout.
-6. Collez la valeur correspondante pour chaque secret.
-7. Cliquez sur **Add secret** après chaque ajout.
 
 ## 6. Ajouter le modèle OpenAI optionnel
 
@@ -246,11 +242,11 @@ Si tout fonctionne, vous recevrez un message Telegram intitulé :
 
 ## 10. Problèmes fréquents
 
-### Le workflow échoue avec `OPENAI_API_KEY is required`
+### Le workflow échoue avec `Missing OPENAI_API_KEY repository secret`
 
-Le secret `OPENAI_API_KEY` n'a pas été ajouté, est mal nommé ou est vide.
+Le secret `OPENAI_API_KEY` n'a pas été ajouté, est mal nommé ou est vide. Retournez dans **Settings** → **Secrets and variables** → **Actions** → **Secrets** et créez un secret nommé exactement `OPENAI_API_KEY`.
 
-### Le workflow échoue avec `TELEGRAM_BOT_TOKEN et TELEGRAM_CHAT_ID sont requis`
+### Le workflow échoue avec `Missing TELEGRAM_BOT_TOKEN repository secret` ou `Missing TELEGRAM_CHAT_ID repository secret`
 
 Vérifiez que les deux secrets existent exactement avec ces noms :
 
@@ -258,6 +254,19 @@ Vérifiez que les deux secrets existent exactement avec ces noms :
 TELEGRAM_BOT_TOKEN
 TELEGRAM_CHAT_ID
 ```
+
+
+### GitHub affiche un avertissement Node.js 20
+
+Le workflow utilise des versions d'actions compatibles Node.js 24 et force aussi GitHub Actions à exécuter les actions JavaScript avec Node 24 :
+
+```text
+actions/checkout@v5
+actions/setup-python@v6
+FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true
+```
+
+Si vous voyez encore un ancien avertissement `Node.js 20 actions are deprecated`, cela signifie presque toujours que GitHub exécute encore une ancienne version du workflow. Vérifiez que la dernière Pull Request a bien été fusionnée, puis relancez le workflow depuis la branche principale.
 
 ### Telegram ne reçoit rien
 
