@@ -132,6 +132,8 @@ academia-content weekly --send-telegram
 
 Le workflow `.github/workflows/weekly-content.yml` exécute automatiquement la génération chaque lundi à 08:00 UTC et peut aussi être lancé manuellement depuis l'onglet **Actions** de GitHub.
 
+Guide pas-à-pas : [`docs/github-actions-setup.md`](docs/github-actions-setup.md).
+
 Secrets GitHub requis :
 
 - `OPENAI_API_KEY`
